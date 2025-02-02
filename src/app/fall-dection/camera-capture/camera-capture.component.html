@@ -1,0 +1,15 @@
+<div class="camera-capture">
+    <h2>Capture Video</h2>
+    <video #videoElement autoplay></video>
+    <canvas #videoCanvas style="display: none;"></canvas>
+  
+    <div class="controls">
+      <button (click)="startRecording()">Start Recording</button>
+      <button (click)="stopRecording()" [disabled]="!isRecording">Stop Recording</button>
+      <button (click)="stopCamera()">Stop Video</button>
+    </div>
+  
+    <h3 *ngIf="videoBlob">Preview:</h3>
+    <video *ngIf="videoBlob" [src]="videoURL" controls></video>
+  </div>
+  
