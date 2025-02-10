@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';  // ✅ Import this module
 
 import { GuardianRoutingModule } from './guardian-routing.module';
 
@@ -8,7 +9,8 @@ import { GuardianRoutingModule } from './guardian-routing.module';
   declarations: [],
   imports: [
     CommonModule,
-    GuardianRoutingModule
+    GuardianRoutingModule,
+    FormsModule
   ]
 })
 export class GuardianModule { }

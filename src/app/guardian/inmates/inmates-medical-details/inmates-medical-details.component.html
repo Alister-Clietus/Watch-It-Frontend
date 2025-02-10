@@ -1,0 +1,27 @@
+
+<app-guardian-side-bar></app-guardian-side-bar>
+
+<div class="medical-report-container">
+    <!-- <h2>Medical Reports</h2> -->
+    <table class="medical-report-table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Current Medical Report</th>
+                <th>Full Body Report</th>
+                <th>Test Reports</th>
+                <th>Diet Details</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let report of reports">
+                <td>{{ report.name }}</td>
+                <td><button class="btn download-btn" (click)="downloadReport(report.currentMedicalReport)">Download</button></td>
+                <td><button class="btn download-btn" (click)="downloadReport(report.fullBodyReport)">Download</button></td>
+                <td><button class="btn download-btn" (click)="downloadReport(report.testReports)">Download</button></td>
+                <td><button class="btn download-btn" (click)="downloadReport(report.dietDetails)">Download</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+

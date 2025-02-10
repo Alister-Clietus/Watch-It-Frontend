@@ -1,0 +1,92 @@
+
+
+<link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+<!-- SIDE BAR STARTS HERE ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<div class="sidebar" [ngClass]="{'open': isSidebarOpen}">
+    <div class="logo-details">
+      <i class='bx bx-menu' style='color:#252323'  ></i>      
+      <div class="logo_name">WatchIt</div>
+      <i class='bx bx-menu' style='color:#252323' (click)="toggleSidebar()" id="btn"></i>
+    </div>
+    <ul class="nav-list">
+      <li>
+        <a (click)="goToDashboard()">
+          <i class='bx bx-grid-alt' style='color:#b88907'></i>
+          <span class="links_name">Dashboard</span>
+        </a>
+         <span class="tooltip">Dashboard</span>
+      </li>
+      <li>
+       <a (click)="addInmatesData()">
+        <i class='bx bx-add-to-queue' style='color:#b88907'></i>
+         <span class="links_name">Add Data</span>
+       </a>
+       <span class="tooltip">Edit/Add Ederly Data</span>
+     </li>
+     <li>
+      <li>
+        <a (click)="addGuardianData()">
+          <i class='bx bxs-user-plus' style='color:#b88907'></i>
+          <span class="links_name">Add Guardian</span>
+        </a>
+        <span class="tooltip">Add Guardian Details</span>
+      </li>
+      <li>
+       <a (click)="addInmatesMedicalRecord()">
+        <i class='bx bxs-capsule' style='color:#b88907'></i>
+         <span class="links_name">Medical Reports</span>
+       </a>
+       <span class="tooltip">Medical Report</span>
+     </li>
+     <li>
+        <a (click)="addDoctorDetails()">
+         <i class='bx bxs-user-pin' style='color:#b88907'></i>
+          <span class="links_name">Add Doctor</span>
+        </a>
+        <span class="tooltip">Add Doctor</span>
+      </li>
+     <li>
+       <a (click)="doctorAppointment()">
+        <i class='bx bx-plus-medical' style='color:#b88907'></i>
+         <span class="links_name">Doctor Appointments</span>
+       </a>
+       <span class="tooltip">Doctor Appointments</span>
+     </li>
+     <li>
+       <a  (click)="downloadFile()">
+         <i class='bx bx-download' style='color:#b88907'></i>
+         <span class="links_name">Download</span>
+       </a>
+       <span class="tooltip">Download</span>
+     </li>
+     <li>
+       <a (click)="uploadFile()">
+         <i class='bx bx-upload' style='color:#b88907'></i>
+         <span class="links_name">Upload</span>
+       </a>
+       <span class="tooltip">Upload</span>
+     </li>
+     <li>
+        <a (click)="liveMonitorin()">
+            <i class='bx bx-desktop' style='color:#b88907'></i>
+          <span class="links_name">Live Monitoring</span>
+        </a>
+        <span class="tooltip">Live Monitoring</span>
+      </li>
+     <li>
+       <a (click)="openSettings()">
+         <i class='bx bx-cog' style='color:#b88907'></i>
+         <span class="links_name">Setting</span>
+       </a>
+       <span class="tooltip">Setting</span>
+     </li>
+     <li>
+        <a (click)="logout()">
+          <i class='bx bx-log-out' style='color:#b88907'></i>
+          <span class="links_name">Logout</span>
+        </a>
+        <span class="tooltip">Logout</span>
+      </li>
+    </ul>
+</div>
+<!-- SIDE BAR ENDS HERE ************************************************************************ -->

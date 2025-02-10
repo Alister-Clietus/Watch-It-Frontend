@@ -1,0 +1,69 @@
+<app-guardian-side-bar></app-guardian-side-bar>
+
+<div class="form-container">
+      <div class="form-grid">
+        <!-- Left Column -->
+        <div class="form-column">
+          <div class="form-group">
+            <label for="firstname">First Name:</label>
+            <input type="text" id="firstname" name="firstname" [(ngModel)]="resident.firstName" required>
+          </div>
+          <div class="form-group">
+            <label for="lastname">Last Name:</label>
+            <input type="text" id="lastname" name="lastname" [(ngModel)]="resident.lastName" required>
+          </div>
+          <div class="form-group">
+            <label for="guardian">Guardian:</label>
+            <input type="text" id="guardian" name="guardian" [(ngModel)]="resident.guardian" required>
+          </div>
+          <div class="form-group">
+            <label for="houseName">House Name:</label>
+            <input type="text" id="houseName" name="houseName" [(ngModel)]="resident.address" required>
+          </div>
+          <div class="form-group">
+            <label for="children">Number of Children:</label>
+            <input type="number" id="children" name="children" [(ngModel)]="resident.no_of_childrens" required>
+          </div>
+          <div class="form-group">
+            <label for="nativePlace">Native Place:</label>
+            <input type="text" id="nativePlace" name="nativePlace" [(ngModel)]="resident.nativeplace" required>
+          </div>
+          <div class="form-group">
+            <label for="aadhaar">Aadhaar Number:</label>
+            <input type="text" id="aadhaar" name="aadhaar" [(ngModel)]="resident.adhaarNumber" required>
+          </div>
+        </div>
+  
+        <!-- Right Column -->
+        <div class="form-column">
+          <div class="form-group">
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" name="dob" [(ngModel)]="resident.panId" required>
+          </div>
+          <div class="form-group">
+            <label for="bloodGroup">Blood Group:</label>
+            <input type="text" id="bloodGroup" name="bloodGroup" [(ngModel)]="resident.panId" required>
+          </div>
+          <div class="form-group">
+            <label for="panId">PAN Card ID:</label>
+            <input type="text" id="panId" name="panId" [(ngModel)]="resident.panId" required>
+          </div>
+          <div class="form-group">
+            <label for="birthPlace">Birth Place:</label>
+            <input type="text" id="birthPlace" name="birthPlace" [(ngModel)]="resident.birthPlace" required>
+          </div>
+          <div class="form-group">
+            <label for="membershipId">Membership ID:</label>
+            <input type="text" id="membershipId" name="membershipId" [(ngModel)]="resident.panId" required>
+          </div>
+          <div class="form-group">
+            <label for="joinedOrphanage">When Joined in Orphanage:</label>
+            <input type="date" id="joinedOrphanage" name="joinedOrphanage" [(ngModel)]="resident.panId" required>
+          </div>
+          <div class="form-group" style="text-align: center;">
+            <input type="submit" value="Submit">
+          </div>
+        </div>
+      </div>
+  </div>
+  

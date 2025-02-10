@@ -1,0 +1,63 @@
+<app-guardian-side-bar></app-guardian-side-bar>
+
+<div class="container12">
+    <!-- Appointment Booking Form -->
+    <div class="container">
+        <h2>Book an Appointment</h2>
+            <div class="form-group">
+                <label for="patientName">Full Name</label>
+                <span class="error-msg-span" style="color: red;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size: 10px;font-style: italic;">{{validationMessage.patientName}}</span>
+                <input type="text" id="patientName" [(ngModel)]="doc_appointment.patientName" name="patientName" required>
+            </div>
+    
+            <div class="form-group">
+                <label for="appointmentDate">Date</label>
+                <span class="error-msg-span" style="color: red;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size: 10px;font-style: italic;">{{validationMessage.appointmentDDate}}</span>
+                <input type="date" id="appointmentDate" [(ngModel)]="doc_appointment.appointmentDDate" name="appointmentDate" required>
+            </div>
+    
+            <div class="form-group">
+                <label for="appointmentTime">Time</label>
+                <span class="error-msg-span" style="color: red;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size: 10px;font-style: italic;">{{validationMessage.appointmentTime}}</span>
+                <input type="time" id="appointmentTime" [(ngModel)]="doc_appointment.appointmentTime" name="appointmentTime" required>
+            </div>
+    
+            <div class="form-group">
+                <label for="doctorName">Doctor</label>
+                <span class="error-msg-span" style="color: red;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size: 10px;font-style: italic;">{{validationMessage.doctorName}}</span>
+                <input type="text" id="appointmentTime" [(ngModel)]="doc_appointment.doctorName" name="appointmentTime" required>
+            </div>
+    
+            <button type="submit" class="btn" (click)="registerDoctorAppointment()">Book Appointment</button>
+    </div>
+    
+
+    <!-- Appointment List Table -->
+    <div class="container">
+        <h2>Appointments</h2>
+        <table class="appointment-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Doctor</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let apt of appointments">
+                    <td>{{ apt.name }}</td>
+                    <td>{{ apt.date }}</td>
+                    <td>{{ apt.time }}</td>
+                    <td>{{ apt.doctor }}</td>
+                    <td><button class="btn" (click)="deleteAppointment(apt)">Cancel</button></td>
+                </tr>
+                <tr *ngIf="appointments.length === 0">
+                    <td colspan="5">No appointments yet</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+</div>

@@ -1,8 +1,11 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { GuardianSideBarComponent } from '../../guardian/guardian-side-bar/guardian-side-bar.component';
 
 @Component({
   selector: 'app-camera-capture',
+  standalone: true,
+  imports: [GuardianSideBarComponent],
   templateUrl: './camera-capture.component.html',
   styleUrls: ['./camera-capture.component.css']
 })

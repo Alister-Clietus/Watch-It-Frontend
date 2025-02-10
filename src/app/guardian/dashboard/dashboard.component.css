@@ -1,0 +1,138 @@
+.dashboard-container {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 35px;
+  }
+  
+  .dashboard-box {
+    background: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    width: 220px;
+  }
+  
+  .dashboard-box i {
+    font-size: 40px;
+    color: #007bff;
+    margin-bottom: 10px;
+  }
+  
+  .dashboard-box h3 {
+    font-size: 18px;
+    margin: 10px 0;
+  }
+  
+  .dashboard-box p {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+  }
+
+  .chart-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h3 {
+    text-align: center;
+    color: #4CAF50;
+    font-family: Arial, sans-serif;
+    margin-bottom: 20px;
+  }
+  
+
+  .health-issues {
+    margin: 20px auto;
+    max-width: 700px;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h3 {
+    text-align: center;
+    color: #FF5722;
+    font-family: Arial, sans-serif;
+    margin-bottom: 20px;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  ul li {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  
+  ul li .inmate-name {
+    font-weight: bold;
+    color: #333;
+  }
+  
+  ul li .health-status {
+    color: #4CAF50;
+  }
+  
+  ul li .status {
+    color: #FF9800;
+  }
+
+  .food-menu {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    max-width: 1090px;
+    margin: 20px auto;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 8px;
+    /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); */
+  }
+  
+  h3 {
+    text-align: center;
+    color: #3F51B5;
+    font-family: Arial, sans-serif;
+    margin-bottom: 20px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  
+  th {
+    background-color: #aa9418;
+    color: white;
+    font-weight: bold;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  
+  

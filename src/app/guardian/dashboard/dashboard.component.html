@@ -1,0 +1,99 @@
+<link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/charts.css/dist/charts.min.css">
+
+<app-guardian-side-bar></app-guardian-side-bar>
+
+<div class="dashboard-container">
+    <!-- Total Inmates -->
+    <div class="dashboard-box">
+        <i class='bx bx-group bx-tada' style='color:#ae8d0e' ></i>      
+        <h3>Total Inmates</h3>
+      <p>{{ totalInmates }}</p>
+    </div>
+  
+    <!-- Inmates Who Can't Walk -->
+    <div class="dashboard-box">
+        <i class='bx bx-handicap bx-tada' style='color:#ae8d0e' ></i>      
+        <h3>Inmates Who Can't Walk</h3>
+      <p>{{ inmatesCantWalk }}</p>
+    </div>
+  
+    <!-- Upcoming Medical Checkups -->
+    <div class="dashboard-box">
+        <i class='bx bxs-calendar-check bx-flashing' style='color:#ae8d0e' ></i>      
+        <h3>Upcoming Checkups</h3>
+      <p>{{ upcomingCheckups }}</p>
+    </div>
+  
+    <!-- Inmates with Disease -->
+    <div class="dashboard-box">
+        <i class='bx bxs-heart bx-burst' style='color:#ae8d0e' ></i>      
+        <h3>Inmates with Diseases</h3>
+      <p>{{ inmatesWithDiseases }}</p>
+    </div>
+  </div>
+  
+
+  <div class="food-menu">
+    <table>
+      <thead>
+        <tr>
+          <th>Day</th>
+          <th>Meal</th>
+          <th>Ingredients</th>
+          <th>Calorie Count</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Monday</td>
+          <td>Breakfast</td>
+          <td>Oatmeal, Fruits</td>
+          <td>1000</td>
+        </tr>
+        <tr>
+          <td>Monday</td>
+          <td>Lunch</td>
+          <td>Rice, Vegetables, Grilled Chicken</td>
+          <td>1000</td>
+
+        </tr>
+        <tr>
+          <td>Monday</td>
+          <td>Dinner</td>
+          <td>Soup, Bread, Salad</td>
+          <td>1000</td>
+
+        </tr>
+        <tr>
+            <td>Monday</td>
+            <td>Dinner</td>
+            <td>Soup, Bread, Salad</td>
+            <td>1000</td>
+
+          </tr>
+          <tr>
+            <td>Monday</td>
+            <td>Dinner</td>
+            <td>Soup, Bread, Salad</td>
+            <td>1000</td>
+
+          </tr>
+          <tr>
+            <td>Monday</td>
+            <td>Dinner</td>
+            <td>Soup, Bread, Salad</td>
+            <td>1000</td>
+
+          </tr>
+          <tr>
+            <td>Monday</td>
+            <td>Dinner</td>
+            <td>Soup, Bread, Salad</td>
+            <td>1000</td>
+
+          </tr>
+        <!-- Add more rows for the other days -->
+      </tbody>
+    </table>
+  </div>

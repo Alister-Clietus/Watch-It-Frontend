@@ -1,0 +1,93 @@
+<app-guardian-side-bar></app-guardian-side-bar>
+
+<div class="form-container">
+    <div class="form-grid">
+      <!-- Left Column -->
+      <div class="form-column">
+        <div class="form-group">
+          <label for="firstname">First Name:</label>
+          <span class="error-msg-span" style="color: red;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size: 10px;font-style: italic;">{{validationMessage.firstName}}</span>
+          <input type="text" id="firstname" name="firstname" [(ngModel)]="guardianModel.firstName" required>
+        </div>
+  
+        <div class="form-group">
+          <label for="lastname">Last Name:</label>
+          <span class="error-msg-span" style="color: red;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size: 10px;font-style: italic;">{{validationMessage.lastName}}</span>
+          <input type="text" id="lastname" name="lastname" [(ngModel)]="guardianModel.lastName" required>
+        </div>
+  
+        <div class="form-group">
+          <label for="age">Age:</label>
+          <span class="error-msg-span" style="color: red;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size: 10px;font-style: italic;">{{validationMessage.age}}</span>
+          <input type="number" id="age" name="age" [(ngModel)]="guardianModel.age" required>
+        </div>
+  
+        <div class="form-group">
+          <label for="houseName">House Name:</label>
+          <span class="error-msg-span" style="color: red;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size: 10px;font-style: italic;">{{validationMessage.address}}</span>
+          <input type="text" id="houseName" name="houseName" [(ngModel)]="guardianModel.address" required>
+        </div>
+  
+        <div class="form-group">
+          <label for="nativePlace">Native Place:</label>
+          <span class="error-msg-span" style="color: red;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size: 10px;font-style: italic;">{{validationMessage.nativeplace}}</span>
+          <input type="text" id="nativePlace" name="nativePlace" [(ngModel)]="guardianModel.nativeplace" required>
+        </div>
+  
+        <div class="form-group">
+          <label for="gender">Gender:</label>
+          <span class="error-msg-span" style="color: red;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size: 10px;font-style: italic;">{{validationMessage.gender}}</span>
+          <input type="text" id="gender" name="gender" [(ngModel)]="guardianModel.gender" required>
+        </div>
+  
+        <div class="form-group-button">
+          <input type="submit" value="Clear" (click)="clearForm()">
+        </div>
+      </div>
+  
+      <!-- Right Column -->
+      <div class="form-column">
+        <div class="form-group">
+          <label for="aadhaar">Aadhaar Number:</label>
+          <span class="error-msg-span" style="color: red;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size: 10px;font-style: italic;">{{validationMessage.adhaarNumber}}</span>
+          <input type="text" id="aadhaar" name="aadhaar" [(ngModel)]="guardianModel.adhaarNumber" required>
+        </div>
+  
+        <div class="form-group">
+          <label for="bloodGroup">Blood Group:</label>
+          <span class="error-msg-span" style="color: red;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size: 10px;font-style: italic;">{{validationMessage.bloodgroup}}</span>
+          <input type="text" id="bloodGroup" name="bloodGroup" [(ngModel)]="guardianModel.bloodgroup" required>
+        </div>
+  
+        <div class="form-group">
+          <label for="panId">PAN Card ID:</label>
+          <span class="error-msg-span" style="color: red;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size: 10px;font-style: italic;">{{validationMessage.panId}}</span>
+          <input type="text" id="panId" name="panId" [(ngModel)]="guardianModel.panId" required>
+        </div>
+  
+        <div class="form-group">
+          <label for="birthPlace">Phone Number:</label>
+          <span class="error-msg-span" style="color: red;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size: 10px;font-style: italic;">{{validationMessage.phone}}</span>
+          <input type="text" id="phone" name="phone" [(ngModel)]="guardianModel.phone" required>
+        </div>
+  
+        <div class="form-group">
+          <label for="joinedOrphanage">When Joined in Orphanage:</label>
+          <span class="error-msg-span" style="color: red;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size: 10px;font-style: italic;">{{validationMessage.joineddate}}</span>
+          <input type="date" id="joineddate" name="joineddate" [(ngModel)]="guardianModel.joineddate" required>
+        </div>
+  
+        <div class="form-group">
+          <label for="gender">Email:</label>
+          <span class="error-msg-span" style="color: red;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size: 10px;font-style: italic;">{{validationMessage.email}}</span>
+          <input type="text" id="email" name="email" [(ngModel)]="guardianModel.email" required>
+        </div>
+  
+        <div class="form-group-button">
+          <input type="submit" value="Submit" (click)="registerGuardian()">
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  

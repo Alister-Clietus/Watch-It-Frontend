@@ -1,3 +1,5 @@
+<app-guardian-side-bar></app-guardian-side-bar>
+
 <div class="camera-capture">
     <h2>Capture Video</h2>
     <video #videoElement autoplay></video>
@@ -9,7 +11,7 @@
       <button (click)="stopCamera()">Stop Video</button>
     </div>
   
-    <h3 *ngIf="videoBlob">Preview:</h3>
-    <video *ngIf="videoBlob" [src]="videoURL" controls></video>
+    <!-- <h3 *ngIf="videoBlob">Preview:</h3> -->
+    <!-- <video *ngIf="videoBlob" [src]="videoURL" controls></video> -->
   </div>
   
