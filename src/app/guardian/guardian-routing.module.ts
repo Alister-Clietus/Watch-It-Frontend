@@ -10,10 +10,12 @@ import { InmatesMedicalDetailsComponent } from './inmates/inmates-medical-detail
 import { SettingsComponent } from './settings/settings.component';
 import { AddDoctorDetailsComponent } from './add-doctor-details/add-doctor-details.component';
 import { AddGuardianDetailsComponent } from './add-guardian-details/add-guardian-details.component';
+import { GuardianDoctorDetailsComponent } from './guardian-doctor-details/guardian-doctor-details.component';
 
 const routes: Routes = 
 [
   {path:"guardian-sidebar",component:GuardianSideBarComponent},
+  {path:"guardian-details",component:GuardianDoctorDetailsComponent},
   {path:"dashboard",component:DashboardComponent},
   {path:"add-inmates",component:AddInmatesComponent},
   {path:"add-guardian",component:AddGuardianDetailsComponent},

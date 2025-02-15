@@ -1,1 +1,52 @@
 /* You can add global styles to this file, and also import other style files */
+.dataTables_paginate {
+    text-align: right !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+  background-color: #000408 !important; /* Blue background */
+  color: white !important; /* White text */
+  border-radius: 5px; /* Rounded corners */
+  padding: 5px 10px;
+  margin: 2px;
+  border: none;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+    background-color: #0056b3 !important; /* Darker blue on hover */
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current {
+    background-color: #28a745 !important; /* Green for the active page */
+}
+
+.dataTables_length label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #01060c; /* Blue color */
+}
+
+.dataTables_length select {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #010810;
+    background-color: white;
+    color: #01070d;
+    cursor: pointer;
+}
+
+.dataTables_length select:hover {
+    background-color: #dfebf8;
+    color: white;
+}
+
+.dataTables_length {
+    text-align: right !important;
+    float: right !important;
+}
+.dataTables_info {
+    font-size: 16px; /* Adjust font size */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: grey;
+}

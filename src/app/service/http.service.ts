@@ -26,4 +26,9 @@ export class HttpService
     {
       return this.http.put<T>(url,data);
     }
+    // Get Details
+    public getDataUsingUrl<T>(url: string): Observable<T>
+    {
+      return this.http.get<any>(url);
+    }
 }

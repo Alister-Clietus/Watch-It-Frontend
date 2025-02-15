@@ -7,6 +7,9 @@ import Swal from 'sweetalert2';
 import { HttpService } from '../../../service/http.service';
 import { Router } from '@angular/router';
 
+declare var $: any;
+declare var jQuery: any;
+
 @Component({
   selector: 'app-doctor-apppointment',
   standalone: true,
@@ -16,12 +19,14 @@ import { Router } from '@angular/router';
 })
 export class DoctorApppointmentComponent 
 {
+  userDatatable: any;
   validationMessage: any;
   doc_appointment:DoctorAppointment=new DoctorAppointment();
 
   ngOnInit() {
     console.log("Resident Object Initialized:", this.doc_appointment);
     this.validationMessage = {};
+    this.getDocotorsAppointment()
   }
 
   constructor(private httpservice: HttpService,private router: Router){}
@@ -56,6 +61,7 @@ export class DoctorApppointmentComponent
               icon: "success",
               confirmButtonColor: "#28a745",
             });
+            this.userDatatable.draw()
           }
           else{
             // Toaster showing error
@@ -106,5 +112,68 @@ export class DoctorApppointmentComponent
         }
         ) //Subscribe Ends Here
        } //Register Doctor Function Ends Here
+
+
+       getDocotorsAppointment() 
+       {
+         this.userDatatable = $('#doctorappointmentlist').DataTable({
+           "bProcessing": false,
+           "bDeferRender": true,
+           "ordering": true,
+           "bAutoWidth": false,
+           "bServerSide": true,
+           "sAjaxSource": "http://127.0.0.1:8099/api/guardian/getall-doctors-appointment/search",
+           "iDisplayStart": 0,
+           "iDisplayLength": 5,
+           "aLengthMenu": [[5, 10, 25, 50, 100], [5, 10, 25, 50, 100]],
+           // "sPaginationType": "full_numbers",
+           "searching": false,  // Hides the search bar
+     
+           "paging": true,
+           "scrollX": true,  // Enables horizontal scrolling
+           "scrollY": "500px",  // Limits height to 1000px and makes content scrollable
+           "scrollCollapse": true,  // Prevents extra empty space
+     "fnServerParams": (aoData: { name: string; value: string; }[]) => {
+       var datastring = "" // 'this' now correctly refers to the class instance
+       console.log(datastring);
+       aoData.push({ name: "searchParam", value: datastring });
+     },
+     
+           
+           "fnServerData": (sSource: any, aoData: any, fnCallback: (arg0: any) => void, oSettings: { jqXHR: any; }) => {
+             oSettings.jqXHR = $.ajax({
+               "dataType": 'json',
+               "type": "GET",
+               "url": sSource,
+               "data": aoData,
+               "success": (data: { countByStatus: any; countByType: any; }) => {
+                 fnCallback(data);
+               },
+               "error": (e: { status: string; }) => {
+                 if (e.status == "403" || e.status == "401") {
+                 }
+               }
+             });
+             
+           },
+           
+           
+           "createdRow": (row: Node, data: any[] | object, dataIndex: number) => {
+             $(row).css({
+               "height": "60px",  // Adjust row height
+               "white-space": "nowrap" // Prevents text from wrapping
+             });
+             
+           },
+         
+     "aoColumns": [
+       { "mDataProp": "patientName", "bSortable": true, },
+       { "mDataProp": "doctorName", "bSortable": true,},
+       { "mDataProp": "appointmentTime", "bSortable": false,},
+       { "mDataProp": "AppointmentDate", "bSortable": true,},
+     ]
+     });
+         
+     }
 
 }

@@ -35,10 +35,11 @@ uploadFile() {
 throw new Error('Method not implemented.');
 }
 downloadFile() {
-throw new Error('Method not implemented.');
+  this.router.navigate(['./guardian/guardian-details']);
 }
 doctorAppointment() {
-  this.router.navigate(['./guardian/doctor-appointment']);}
+  this.router.navigate(['./guardian/doctor-appointment']);
+}
 addInmatesMedicalRecord()
 {
   this.router.navigate(['./guardian/medical-details']);

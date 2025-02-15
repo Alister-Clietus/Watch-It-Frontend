@@ -3,36 +3,6 @@
 
 <app-guardian-side-bar></app-guardian-side-bar>
 
-<div class="dashboard-container">
-    <!-- Total Inmates -->
-    <div class="dashboard-box">
-        <i class='bx bx-group bx-tada' style='color:#ae8d0e' ></i>      
-        <h3>Total Inmates</h3>
-      <p>{{ totalInmates }}</p>
-    </div>
-  
-    <!-- Inmates Who Can't Walk -->
-    <div class="dashboard-box">
-        <i class='bx bx-handicap bx-tada' style='color:#ae8d0e' ></i>      
-        <h3>Inmates Who Can't Walk</h3>
-      <p>{{ inmatesCantWalk }}</p>
-    </div>
-  
-    <!-- Upcoming Medical Checkups -->
-    <div class="dashboard-box">
-        <i class='bx bxs-calendar-check bx-flashing' style='color:#ae8d0e' ></i>      
-        <h3>Upcoming Checkups</h3>
-      <p>{{ upcomingCheckups }}</p>
-    </div>
-  
-    <!-- Inmates with Disease -->
-    <div class="dashboard-box">
-        <i class='bx bxs-heart bx-burst' style='color:#ae8d0e' ></i>      
-        <h3>Inmates with Diseases</h3>
-      <p>{{ inmatesWithDiseases }}</p>
-    </div>
-  </div>
-
   <div class="custom-search-container">
     <!-- Search Input -->
     <div class="search-box">
@@ -74,29 +44,83 @@
   </div>
 
   <div class="resident-container">
-    <table id="questionList">
+    <table id="guardianlist">
       <thead>
         <tr>
-          <th>ID</th>
           <th>First Name</th>
           <th>Last Name</th>
+          <th>Address</th>
+          <th>Gender</th>
+          <th>Phone</th>
+          <th>Email</th>
           <th>Aadhaar Number</th>
-          <th>PAN ID</th>
-          <th>No. of Children</th>
-          <th>Native Place</th>
-          <th>Guardian</th>
           <th>Birth Place</th>
           <th>Date of Birth</th>
-          <th>Gender</th>
-          <th>Address</th>
           <th>Blood Group</th>
-          <th>Weight</th>
-          <th>Height</th>
           <th>Joined Date</th>
         </tr>
       </thead>
       <tbody>
-
       </tbody>
     </table>
+</div>
+
+<div class="custom-search-container">
+    <!-- Search Input -->
+    <div class="search-box">
+      <i class="fas fa-search"></i>
+      <input type="text" id="customSearch" [(ngModel)]="searchQuery" placeholder="Search..." />
+    </div>
+    
+  
+    <!-- Dropdown Filter -->
+    <select id="customFilter" [(ngModel)]="selectedFilter">
+      <option value="">All</option>
+      <option value="firstName">First Name</option>
+      <option value="lastName">Last Name</option>
+      <option value="age">Age</option>
+      <option value="adhaarNumber">Aadhaar Number</option>
+      <option value="panId">PAN ID</option>
+      <option value="no_of_childrens">No. of Children</option>
+      <option value="nativeplace">Native Place</option>
+      <option value="guardian">Guardian</option>
+      <option value="birthPlace">Birth Place</option>
+      <option value="dateOfBirth">Date of Birth</option>
+      <option value="gender">Gender</option>
+      <option value="address">Address</option>
+      <option value="joineddate">Joined Date</option>
+      <option value="bloodGroup">Blood Group</option>
+      <option value="weight">Weight</option>
+      <option value="height">Height</option>
+    </select>
+    
+
+    <button id="customFilter" (click)="getresultdoctor()">
+      Search
+    </button>
+
+    <button id="customFilter" (click)="cleardoctor()">
+      Clear
+    </button>
+
   </div>
+
+<div class="resident-container">
+    <table id="doctorlist">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Specialization</th>
+          <th>HospitalName</th>
+          <th>Email</th>
+          <th>Phone Number</th>
+          <th>Address</th>
+          <th>AadharNumber</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+</div>
+
