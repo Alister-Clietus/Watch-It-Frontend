@@ -3,124 +3,118 @@
 
 <app-guardian-side-bar></app-guardian-side-bar>
 
-  <div class="custom-search-container">
-    <!-- Search Input -->
-    <div class="search-box">
-      <i class="fas fa-search"></i>
-      <input type="text" id="customSearch" [(ngModel)]="searchQuery" placeholder="Search..." />
-    </div>
-    
-  
-    <!-- Dropdown Filter -->
-    <select id="customFilter" [(ngModel)]="selectedFilter">
-      <option value="">All</option>
-      <option value="firstName">First Name</option>
-      <option value="lastName">Last Name</option>
-      <option value="age">Age</option>
-      <option value="adhaarNumber">Aadhaar Number</option>
-      <option value="panId">PAN ID</option>
-      <option value="no_of_childrens">No. of Children</option>
-      <option value="nativeplace">Native Place</option>
-      <option value="guardian">Guardian</option>
-      <option value="birthPlace">Birth Place</option>
-      <option value="dateOfBirth">Date of Birth</option>
-      <option value="gender">Gender</option>
-      <option value="address">Address</option>
-      <option value="joineddate">Joined Date</option>
-      <option value="bloodGroup">Blood Group</option>
-      <option value="weight">Weight</option>
-      <option value="height">Height</option>
-    </select>
-    
-
-    <button id="customFilter" (click)="getresult()">
-      Search
-    </button>
-
-    <button id="customFilter" (click)="clear()">
-      Clear
-    </button>
-
-  </div>
-
-  <div class="resident-container">
-    <table id="guardianlist">
-      <thead>
-        <tr>
-          <th>First Name</th>
-          <th>Last Name</th>
-          <th>Address</th>
-          <th>Gender</th>
-          <th>Phone</th>
-          <th>Email</th>
-          <th>Aadhaar Number</th>
-          <th>Birth Place</th>
-          <th>Date of Birth</th>
-          <th>Blood Group</th>
-          <th>Joined Date</th>
-        </tr>
-      </thead>
-      <tbody>
-      </tbody>
-    </table>
+<div class="resident-container">
+  <h2 class="table-title">Guardian List</h2>  <!-- Table Title -->
 </div>
 
 <div class="custom-search-container">
-    <!-- Search Input -->
-    <div class="search-box">
-      <i class="fas fa-search"></i>
-      <input type="text" id="customSearch" [(ngModel)]="searchQuery" placeholder="Search..." />
-    </div>
-    
-  
-    <!-- Dropdown Filter -->
-    <select id="customFilter" [(ngModel)]="selectedFilter">
-      <option value="">All</option>
-      <option value="firstName">First Name</option>
-      <option value="lastName">Last Name</option>
-      <option value="age">Age</option>
-      <option value="adhaarNumber">Aadhaar Number</option>
-      <option value="panId">PAN ID</option>
-      <option value="no_of_childrens">No. of Children</option>
-      <option value="nativeplace">Native Place</option>
-      <option value="guardian">Guardian</option>
-      <option value="birthPlace">Birth Place</option>
-      <option value="dateOfBirth">Date of Birth</option>
-      <option value="gender">Gender</option>
-      <option value="address">Address</option>
-      <option value="joineddate">Joined Date</option>
-      <option value="bloodGroup">Blood Group</option>
-      <option value="weight">Weight</option>
-      <option value="height">Height</option>
-    </select>
-    
 
-    <button id="customFilter" (click)="getresultdoctor()">
-      Search
-    </button>
-
-    <button id="customFilter" (click)="cleardoctor()">
-      Clear
-    </button>
-
+  <!-- Search Input -->
+  <div class="search-box">
+    <i class="fas fa-search"></i>
+    <input type="text" id="customSearch" [(ngModel)]="searchQueryGuardian" placeholder="Search..." />
   </div>
 
-<div class="resident-container">
-    <table id="doctorlist">
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Name</th>
-          <th>Specialization</th>
-          <th>HospitalName</th>
-          <th>Email</th>
-          <th>Phone Number</th>
-          <th>Address</th>
-          <th>AadharNumber</th>
-        </tr>
-      </thead>
-      <tbody>
-      </tbody>
-    </table>
+
+  <!-- Dropdown Filter -->
+  <select id="customFilter" [(ngModel)]="selectedFilterGuardian">
+    <option value="">All</option>
+    <option value="firstName">First Name</option>
+    <option value="lastName">Last Name</option>
+    <option value="age">Age</option>
+    <option value="adhaarNumber">Aadhaar Number</option>
+    <option value="panId">PAN ID</option>
+    <option value="gender">Gender</option>
+    <option value="address">Address</option>
+    <option value="phone">Phone Number</option>
+    <option value="joineddate">Joined Date</option>
+    <option value="bloodgroup">Blood Group</option>
+    <option value="nativeplace">Native Place</option>
+  </select>
+
+
+  <button id="customFilter" (click)="getresult()">
+    Search
+  </button>
+
+  <button id="customFilter" (click)="clearGuardian()">
+    Clear
+  </button>
+
 </div>
 
+<div class="resident-container">
+  <table id="guardianlist">
+    <thead>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Address</th>
+        <th>Gender</th>
+        <th>Phone</th>
+        <th>Email</th>
+        <th>Aadhaar Number</th>
+        <th>Birth Place</th>
+        <th>Date of Birth</th>
+        <th>Blood Group</th>
+        <th>Joined Date</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+</div>
+
+<div class="resident-container">
+  <h2 class="table-title">Doctors List</h2>  <!-- Table Title -->
+</div>
+
+<div class="custom-search-container">
+  <!-- Search Input -->
+  <div class="search-box">
+    <i class="fas fa-search"></i>
+    <input type="text" id="customSearch" [(ngModel)]="searchQueryDoctor" placeholder="Search..." />
+  </div>
+
+
+  <!-- Dropdown Filter -->
+  <select id="customFilter" [(ngModel)]="selectedFilterDoctor">
+    <option value="">All</option>
+    <option value="name">Name</option>
+    <option value="phoneNumber">Phone Number</option>
+    <option value="aadharNumber">Adhar Number</option>
+    <option value="email">Email</option>
+    <option value="specialization">Specialization</option>
+    <option value="hospitalName">Hospital Name</option>
+    <option value="age">Age</option>
+  </select>
+
+
+  <button id="customFilter" (click)="getresultdoctor()">
+    Search
+  </button>
+
+  <button id="customFilter" (click)="cleardoctor()">
+    Clear
+  </button>
+
+</div>
+
+<div class="resident-container">
+  <table id="doctorlist">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Specialization</th>
+        <th>HospitalName</th>
+        <th>Email</th>
+        <th>Phone Number</th>
+        <th>Address</th>
+        <th>AadharNumber</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+</div>

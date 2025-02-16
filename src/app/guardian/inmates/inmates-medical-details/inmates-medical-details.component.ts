@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { GuardianSideBarComponent } from '../../guardian-side-bar/guardian-side-bar.component';
 import { CommonModule } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
+import { InmatesMedicalRecords } from '../../../models/inmates-medical-records';
 
 @Component({
   selector: 'app-inmates-medical-details',
@@ -11,74 +13,33 @@ import { CommonModule } from '@angular/common';
 })
 export class InmatesMedicalDetailsComponent 
 {
-  reports = [
-    { 
-      name: 'John Doe', 
-      currentMedicalReport: 'john_current.pdf',
-      fullBodyReport: 'john_fullbody.pdf',
-      testReports: 'john_tests.pdf',
-      dietDetails: 'john_diet.pdf'
-    },
-    { 
-      name: 'Jane Smith', 
-      currentMedicalReport: 'jane_current.pdf',
-      fullBodyReport: 'jane_fullbody.pdf',
-      testReports: 'jane_tests.pdf',
-      dietDetails: 'jane_diet.pdf'
-    }
-    ,
-    { 
-      name: 'Jane Smith', 
-      currentMedicalReport: 'jane_current.pdf',
-      fullBodyReport: 'jane_fullbody.pdf',
-      testReports: 'jane_tests.pdf',
-      dietDetails: 'jane_diet.pdf'
-    }
-    ,
-    { 
-      name: 'Jane Smith', 
-      currentMedicalReport: 'jane_current.pdf',
-      fullBodyReport: 'jane_fullbody.pdf',
-      testReports: 'jane_tests.pdf',
-      dietDetails: 'jane_diet.pdf'
-    }
-    ,
-    { 
-      name: 'Jane Smith', 
-      currentMedicalReport: 'jane_current.pdf',
-      fullBodyReport: 'jane_fullbody.pdf',
-      testReports: 'jane_tests.pdf',
-      dietDetails: 'jane_diet.pdf'
-    },
-    { 
-      name: 'Jane Smith', 
-      currentMedicalReport: 'jane_current.pdf',
-      fullBodyReport: 'jane_fullbody.pdf',
-      testReports: 'jane_tests.pdf',
-      dietDetails: 'jane_diet.pdf'
-    },
-    { 
-      name: 'Jane Smith', 
-      currentMedicalReport: 'jane_current.pdf',
-      fullBodyReport: 'jane_fullbody.pdf',
-      testReports: 'jane_tests.pdf',
-      dietDetails: 'jane_diet.pdf'
-    },
-    { 
-      name: 'Jane Smith', 
-      currentMedicalReport: 'jane_current.pdf',
-      fullBodyReport: 'jane_fullbody.pdf',
-      testReports: 'jane_tests.pdf',
-      dietDetails: 'jane_diet.pdf'
-    },
-    { 
-      name: 'Jane Smith', 
-      currentMedicalReport: 'jane_current.pdf',
-      fullBodyReport: 'jane_fullbody.pdf',
-      testReports: 'jane_tests.pdf',
-      dietDetails: 'jane_diet.pdf'
-    }
-  ];
+  anyArray: any[] = [];
+
+  reports: InmatesMedicalRecords[] = []; // Define as an array
+
+  selectedFile: File | null = null;
+  selectedReport: any = null;
+  selectedReportType: string | null = null;
+
+  constructor(private http: HttpClient) {}
+
+  ngOnInit(): void {
+    this.fetchReports();
+  }
+
+  fetchReports() {
+    this.http.get<any>('http://127.0.0.1:8099/api/guardian/get-inpatients/pdf')
+      .subscribe({
+        next: (response) => {
+          this.anyArray = response.aaData
+          console.log(this.anyArray)
+        },
+        error: (err) => {
+          console.error('Error fetching reports:', err);
+          alert('Failed to fetch reports. Please try again later.');
+        }
+      });
+  }
 
   downloadReport(fileName: string) {
     const link = document.createElement('a');
@@ -88,5 +49,48 @@ export class InmatesMedicalDetailsComponent
     link.click();
     document.body.removeChild(link);
   }
+
+  onFileSelected(event: any, report: any, reportType: string) {
+    const file: File = event.target.files[0];
+
+    if (file && file.type === "application/pdf") {
+      this.selectedFile = file;
+      this.selectedReport = report;
+      this.selectedReportType = reportType;
+
+      const confirmUpload = confirm(`Do you want to upload ${file.name}?`);
+      if (confirmUpload) {
+        this.uploadReport();
+      }
+    } else {
+      alert("Please select a valid PDF file.");
+    }
+  }
+
+  uploadReport() {
+    if (!this.selectedFile || !this.selectedReport || !this.selectedReportType) return;
+
+    const formData = new FormData();
+    formData.append('id', this.selectedReport.id.toString());
+    formData.append('name', this.selectedReport.name);
+    formData.append(this.selectedReportType, this.selectedFile);
+console.log(formData)
+    this.http.post('http://127.0.0.1:8099/api/guardian/file/upload', formData)
+      .subscribe({
+        next: () => {
+          alert('File uploaded successfully!');
+          // this.selectedReport[reportType] = this.selectedFile.name;
+        },
+        error: (err) => alert('Error uploading file: ' + err.message)
+      });
+
+    this.selectedFile = null;
+    this.selectedReport = null;
+    this.selectedReportType = null;
+    this.fetchReports();
+
+  }
+
+
 
 }

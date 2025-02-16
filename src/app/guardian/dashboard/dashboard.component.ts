@@ -11,35 +11,16 @@ declare var jQuery: any;
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [GuardianSideBarComponent,CommonModule,FormsModule],
+  imports: [GuardianSideBarComponent, CommonModule, FormsModule],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
 })
 
-export class DashboardComponent implements OnInit 
-{
-clear() 
-{
-  this.selectedFilter="";
-  this.searchQuery="";
-  this.userDatatable.draw()
-}
-getresult() 
-{
-this.userDatatable.draw()
-}
+export class DashboardComponent implements OnInit {
 
-selectedFilter: any;
-searchQuery: any;
-
-  ngOnInit(): void 
-  {
-    DashboardComponent.obj=this;
-    this.getUsers()
-
-  }
-
-  static obj:DashboardComponent;
+  selectedFilter: any;
+  searchQuery: any;
+  static obj: DashboardComponent;
   totalInmates: number = 150; // Example count
   inmatesCantWalk: number = 30;
   upcomingCheckups: number = 5;
@@ -50,10 +31,25 @@ searchQuery: any;
   residents: InmateModel[] = [];
   userDatatable: any;
 
-  constructor(private httpserve: HttpService) {}
+  clear() {
+    this.selectedFilter = "";
+    this.searchQuery = "";
+    this.userDatatable.draw()
+  }
 
-  getSearchInputs() 
-  {
+  getresult() {
+    this.userDatatable.draw()
+  }
+
+  ngOnInit(): void {
+    DashboardComponent.obj = this;
+    this.getUsers()
+
+  }
+
+  constructor(private httpserve: HttpService) { }
+
+  getSearchInputs() {
     console.log("this function got")
     let InmatesDto: InmateModel = new InmateModel(); // Create a new instance
     console.log("this function to make empty")
@@ -63,9 +59,8 @@ searchQuery: any;
     });
     console.log("this function to make check")
     // Assign the search value to the selected filter
-    if (this.selectedFilter && this.searchQuery) 
-    {
-      
+    if (this.selectedFilter && this.searchQuery) {
+
       (InmatesDto as any)[this.selectedFilter] = this.searchQuery;
       console.log("Quesry is there")
       if (Object.values(InmatesDto).some(value => value !== '')) {
@@ -74,17 +69,14 @@ searchQuery: any;
       }
 
     }
-    else
-    {
+    else {
       return "";
     }
     // Check if at least one property has a non-empty value
     return ""; // Return an empty string if all values are empty
   }
-  
 
-  getUsers() 
-  {
+  getUsers() {
     this.userDatatable = $('#questionList').DataTable({
       "bProcessing": false,
       "bDeferRender": true,
@@ -102,13 +94,13 @@ searchQuery: any;
       "scrollX": true,  // Enables horizontal scrolling
       "scrollY": "500px",  // Limits height to 1000px and makes content scrollable
       "scrollCollapse": true,  // Prevents extra empty space
-"fnServerParams": (aoData: { name: string; value: string; }[]) => {
-  var datastring = this.getSearchInputs(); // 'this' now correctly refers to the class instance
-  console.log(datastring);
-  aoData.push({ name: "searchParam", value: datastring });
-},
+      "fnServerParams": (aoData: { name: string; value: string; }[]) => {
+        var datastring = this.getSearchInputs(); // 'this' now correctly refers to the class instance
+        console.log(datastring);
+        aoData.push({ name: "searchParam", value: datastring });
+      },
 
-      
+
       "fnServerData": (sSource: any, aoData: any, fnCallback: (arg0: any) => void, oSettings: { jqXHR: any; }) => {
         oSettings.jqXHR = $.ajax({
           "dataType": 'json',
@@ -123,18 +115,18 @@ searchQuery: any;
             }
           }
         });
-        
+
       },
-      
-      
+
+
       "createdRow": (row: Node, data: any[] | object, dataIndex: number) => {
         $(row).css({
           "height": "60px",  // Adjust row height
           "white-space": "nowrap" // Prevents text from wrapping
         });
-        
+
       },
-    
+
       "aoColumns": [
         { "mDataProp": "id", "bSortable": true, "sTitle": "ID" },
         { "mDataProp": "firstName", "bSortable": true, "sTitle": "First Name" },
@@ -154,10 +146,8 @@ searchQuery: any;
         { "mDataProp": "height", "bSortable": true, "sTitle": "Height (cm)" }
       ]
     });
-    
-}
 
-  
+  }
 
 }
 

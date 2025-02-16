@@ -11,7 +11,7 @@ body {
     border-radius: 8px;
     margin: auto;
     margin-top:4%;
-    margin-left: 300px;
+    margin-left: 275px;
 }
 .form-container h2 {
     text-align: center;
@@ -63,3 +63,5 @@ input, textarea {
 {
     display: flex;
 }
+
+  

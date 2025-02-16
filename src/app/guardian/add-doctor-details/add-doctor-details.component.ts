@@ -28,7 +28,9 @@ export class AddDoctorDetailsComponent {
   constructor(private httpservice: HttpService,private router: Router){}
 
     //Registration Doctor function Starts Here
-     registerInmates(){
+     registerInmates()
+     {
+      
       this.validationMessage={};
       console.log(this.doctorDto)
       this.httpservice.postdata("http://localhost:8099/api/guardian/create-doctor",this.doctorDto).subscribe((item:any)=>{
