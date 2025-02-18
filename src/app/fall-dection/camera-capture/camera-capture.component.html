@@ -1,17 +1,37 @@
 <app-guardian-side-bar></app-guardian-side-bar>
-
+<div class="resident-container">
+  <h2 class="table-title">Recording Screen</h2>  <!-- Table Title -->
+</div>
 <div class="camera-capture">
-    <h2>Capture Video</h2>
-    <video #videoElement autoplay></video>
-    <canvas #videoCanvas style="display: none;"></canvas>
+
+  <video *ngIf="!videoUrll" #videoElement autoplay></video>
+  <canvas #videoCanvas style="display: none;"></canvas>
+
+  <div class="video-preview" *ngIf="videoUrll">
+  <video [src]="videoUrll" controls></video>
   
-    <div class="controls">
-      <button (click)="startRecording()">Start Recording</button>
-      <button (click)="stopRecording()" [disabled]="!isRecording">Stop Recording</button>
-      <button (click)="stopCamera()">Stop Video</button>
+</div>
+
+  <div class="controls">
+    <button (click)="startRecording()">Start Recording</button>
+    <button (click)="clear()">Clear Recording</button>
+    <button (click)="stopRecording()" [disabled]="!isRecording">Stop Recording</button>
+    <button (click)="sendVideo()">Send Video</button>
+    <button (click)="uploadToServer()">Send Uploaded Video</button>
+    <span>
+    <button (click)="fileInput.click()" class="custom-button">Upload Video</button>
+      <input #fileInput style="display: none;" type="file" (change)="uploadVideo($event)" accept="video/*">
+    </span>
+  </div>
+
+</div>
+
+  
+  <div *ngIf="showAlert" class="overlay">
+    <div class="alert-box" #alertBox>
+      <h1 class="text-red-600 text-3xl font-bold">⚠️ Emergency Alert! ⚠️</h1>
+      <p class="text-white mt-4">A Person Detected Fall</p>
+      <button (click)="dismissAlert()" class="dismiss-btn">Dismiss</button>
     </div>
-  
-    <!-- <h3 *ngIf="videoBlob">Preview:</h3> -->
-    <!-- <video *ngIf="videoBlob" [src]="videoURL" controls></video> -->
   </div>
   

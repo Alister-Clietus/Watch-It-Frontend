@@ -16,7 +16,9 @@ import Swal from 'sweetalert2';
 })
 export class AddGuardianDetailsComponent 
 {
-clearForm() {
+
+clearForm() 
+{
 throw new Error('Method not implemented.');
 }
   guardianModel: GuardianModel=new GuardianModel();
