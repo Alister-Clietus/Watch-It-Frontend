@@ -1,0 +1,14 @@
+<app-doctor-sidebar></app-doctor-sidebar>
+
+<div *ngFor="let appointment of appointments; let i = index" class="appointment-box">
+    <div class="appointment-details">
+      <p class="para"><i class='bx bx-street-view bx-spin' ></i><strong> Patient Name:</strong> {{ appointment.patientName }}</p>
+      <p class="para"><i class='bx bxs-ambulance bx-tada' ></i><strong>   Doctor Name:</strong> {{ appointment.doctorName }}</p>
+      
+      <p class="para"><i class='bx bxs-time bx-burst' ></i><strong>     Appointment Time:</strong> {{ appointment.appointmentTime }}</p>
+      <p class="para"><i class='bx bxs-calendar-alt bx-tada' ></i><strong>    Appointment Date:</strong> {{ appointment.AppointmentDate }}</p>
+    </div>
+    <button (click)="markAsNoted(i)" [disabled]="isNoted(i)">
+      {{ isNoted(i) ? '✔ Noted' : 'Noted' }}
+    </button>
+  </div>

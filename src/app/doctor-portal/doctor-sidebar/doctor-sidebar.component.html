@@ -1,0 +1,50 @@
+
+
+<link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+<!-- SIDE BAR STARTS HERE ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<div class="sidebar" [ngClass]="{'open': isSidebarOpen}">
+    <div class="logo-details">
+      <i class='bx bx-menu' style='color:#252323'  ></i>      
+      <div class="logo_name">WatchIt</div>
+      <i class='bx bx-menu' style='color:#252323' (click)="toggleSidebar()" id="btn"></i>
+    </div>
+    <ul class="nav-list">
+        <li>
+            <a (click)="addInmatesMedicalRecord()">
+             <i class='bx bxs-capsule' style='color:#b88907'></i>
+              <span class="links_name">Medical Reports</span>
+            </a>
+            <span class="tooltip">Medical Report</span>
+          </li>
+
+      <li>
+       <a (click)="addInmatesMedicalDetails()">
+        <i class='bx bxs-capsule' style='color:#b88907'></i>
+         <span class="links_name">Medical Reports</span>
+       </a>
+       <span class="tooltip">Medical Report</span>
+     </li>
+     <li>
+        <a (click)="doctorAppointment()">
+         <i class='bx bx-plus-medical' style='color:#b88907'></i>
+          <span class="links_name">Doctor Appointments</span>
+        </a>
+        <span class="tooltip">Doctor Appointments</span>
+      </li>
+     <li>
+        <a (click)="liveMonitorin()">
+            <i class='bx bx-desktop' style='color:#b88907'></i>
+          <span class="links_name">Live Monitoring</span>
+        </a>
+        <span class="tooltip">Live Monitoring</span>
+      </li>
+     <li>
+        <a (click)="logout()">
+          <i class='bx bx-log-out' style='color:#b88907'></i>
+          <span class="links_name">Logout</span>
+        </a>
+        <span class="tooltip">Logout</span>
+      </li>
+    </ul>
+</div>
+<!-- SIDE BAR ENDS HERE ************************************************************************ -->

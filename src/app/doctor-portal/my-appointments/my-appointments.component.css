@@ -1,0 +1,44 @@
+.appointment-box {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    /* border: 1px solid #cccccc; */
+    padding: 15px;
+    margin-bottom: 10px;
+    margin-top: 30px;
+    margin-left: 19%;
+    margin-right: 9%;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* background-color: rgb(58, 136, 32); */
+    width: 60%;
+    box-shadow: 1px 2px 3px 4px rgb(121, 237, 121);
+  }
+  
+  .appointment-details {
+    flex: 1;
+  }
+  
+  button {
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+
+
+.para
+{
+box-shadow: 1px 1px 1px 1px lightblue;    
+width: 500px;
+    font-size: 20px;
+    border-radius: 10px;
+    height: 30px;
+}
