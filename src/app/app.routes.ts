@@ -24,4 +24,12 @@ export const routes: Routes =
           ),
       },
 
+      {
+        path: 'doctor',
+        loadChildren: () =>
+          import('./doctor-portal/doctor-portal.module').then(
+            (m) => m.DoctorPortalModule
+          ),
+      },
+
 ];

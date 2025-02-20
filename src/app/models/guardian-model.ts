@@ -7,6 +7,8 @@ export class GuardianModel {
     bloodgroup: string = '';
     gender: string = '';
     email: string = '';
+    password: string = '';
+    role: string = '';
     phone: string = '';
     adhaarNumber: string = '';
     panId: string = '';

@@ -137,6 +137,7 @@ export class DoctorApppointmentComponent
        var datastring = "" // 'this' now correctly refers to the class instance
        console.log(datastring);
        aoData.push({ name: "searchParam", value: datastring });
+       console.log(aoData)
      },
      
            

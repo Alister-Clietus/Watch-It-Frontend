@@ -1,0 +1,107 @@
+<app-signup-sidebar></app-signup-sidebar>
+
+<div class="form-container">
+    <div class="form-group" style="text-align: center;">
+      <input type="submit" value="Add Admin Details" style="background-color: grey; width:97%">
+  </div>
+        <div class="form-grid">
+          <!-- Left Column -->
+          <div class="form-column">
+            <div class="form-group">
+              <label for="firstname">First Name:</label>
+              <span class="error-msg-span" style="color: red;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size: 10px;font-style: italic;">{{validationMessage.firstName}}</span>
+              <input type="text" id="firstname" name="firstname" [(ngModel)]="resident.firstName" required>
+            </div>
+            <div class="form-group">
+              <label for="lastname">Last Name:</label>
+              <span class="error-msg-span" style="color: red;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size: 10px;font-style: italic;">{{validationMessage.lastName}}</span>
+              <input type="text" id="lastname" name="lastname" [(ngModel)]="resident.lastName" required>
+            </div>
+            <div class="form-group">
+              <label for="guardian">Guardian:</label>
+              <span class="error-msg-span" style="color: red;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size: 10px;font-style: italic;">{{validationMessage.guardian}}</span>
+              <input type="text" id="guardian" name="guardian" [(ngModel)]="resident.guardian" required>
+            </div>
+            <div class="form-group">
+              <label for="houseName">House Name:</label>
+              <span class="error-msg-span" style="color: red;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size: 10px;font-style: italic;">{{validationMessage.address}}</span>
+              <input type="text" id="houseName" name="houseName" [(ngModel)]="resident.address" required>
+            </div>
+            <div class="form-group">
+              <label for="children">Number of Children:</label>
+              <span class="error-msg-span" style="color: red;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size: 10px;font-style: italic;">{{validationMessage.no_of_childrens}}</span>
+              <input type="number" id="children" name="children" [(ngModel)]="resident.no_of_childrens" required>
+            </div>
+            <div class="form-group">
+              <label for="nativePlace">Native Place:</label>
+              <span class="error-msg-span" style="color: red;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size: 10px;font-style: italic;">{{validationMessage.nativeplace}}</span>
+              <input type="text" id="nativePlace" name="nativePlace" [(ngModel)]="resident.nativeplace" required>
+            </div>
+            <div class="form-group">
+              <label for="dob">Date of Birth:</label>
+              <span class="error-msg-span" style="color: red;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size: 10px;font-style: italic;">{{validationMessage.dateOfBirth}}</span>
+              <input type="date" id="dob" name="dob" [(ngModel)]="resident.dateOfBirth" required>
+            </div>
+            <div class="form-group">
+              <label for="nativePlace">Gender:</label>
+              <span class="error-msg-span" style="color: red;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size: 10px;font-style: italic;">{{validationMessage.gender}}</span>
+              <input type="text" id="gender" name="gender" [(ngModel)]="resident.gender" required>
+            </div>
+            <!-- Clear Button for clearing the data -->
+            <div class="form-group-button">
+              <input type="submit" value="Clear" (click)="registerInmates()">
+            </div>
+          </div>
+    
+          <!-- Right Column -->
+          <div class="form-column">
+          <div class="form-group">
+              <label for="aadhaar">Aadhaar Number:</label>
+              <span class="error-msg-span" style="color: red;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size: 10px;font-style: italic;">{{validationMessage.adhaarNumber}}</span>
+              <input type="text" id="aadhaar" name="aadhaar" [(ngModel)]="resident.adhaarNumber" required>
+          </div>
+            <div class="form-group">
+              <label for="bloodGroup">Blood Group:</label>
+              <span class="error-msg-span" style="color: red;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size: 10px;font-style: italic;">{{validationMessage.bloodGroup}}</span>
+              <input type="text" id="bloodGroup" name="bloodGroup" [(ngModel)]="resident.bloodGroup" required>
+            </div>
+            <div class="form-group">
+              <label for="panId">PAN Card ID:</label>
+              <span class="error-msg-span" style="color: red;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size: 10px;font-style: italic;">{{validationMessage.panId}}</span>
+              <input type="text" id="panId" name="panId" [(ngModel)]="resident.panId" required>
+            </div>
+            <div class="form-group">
+              <label for="birthPlace">Birth Place:</label>
+              <span class="error-msg-span" style="color: red;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size: 10px;font-style: italic;">{{validationMessage.birthPlace}}</span>
+              <input type="text" id="birthPlace" name="birthPlace" [(ngModel)]="resident.birthPlace" required>
+            </div>
+            <div class="form-group">
+              <label for="membershipId">Height:</label>
+              <span class="error-msg-span" style="color: red;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size: 10px;font-style: italic;">{{validationMessage.height}}</span>
+              <input type="text" id="membershipId" name="membershipId" [(ngModel)]="resident.height" required>
+            </div>
+            <div class="form-group">
+              <label for="membershipId">Weight:</label>
+              <span class="error-msg-span" style="color: red;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size: 10px;font-style: italic;">{{validationMessage.weight}}</span>
+              <input type="text" id="membershipId" name="membershipId" [(ngModel)]="resident.weight" required>
+            </div>
+            <div class="form-group">
+              <label for="joinedOrphanage">When Joined in Orphanage:</label>
+              <span class="error-msg-span" style="color: red;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size: 10px;font-style: italic;">{{validationMessage.joineddate}}</span>
+              <input type="date" id="joinedOrphanage" name="joinedOrphanage" [(ngModel)]="resident.joineddate" required>
+            </div>
+            <div class="form-group">
+              <label for="nativePlace">Gender:</label>
+              <span class="error-msg-span" style="color: red;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size: 10px;font-style: italic;">{{validationMessage.gender}}</span>
+              <input type="text" id="gender" name="gender" [(ngModel)]="resident.gender" required>
+            </div>
+            <!-- Register Button, when clicked registerInamtes function got called and it send the data using post request to spring boot -->
+            <div class="form-group-button" style="text-align: center;">
+                <div class="buttons">
+                  <input type="submit" value="Submit" (click)="registerInmates()">
+                  <input type="submit" value="Login" (click)="login()">
+               </div>
+            </div>
+          </div>
+        </div>
+  </div>

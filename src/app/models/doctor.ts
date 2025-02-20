@@ -4,6 +4,8 @@ export class Doctor {
     phoneNumber: string = '';
     aadharNumber: string = '';
     email: string = '';
+    password: string = '';
+    role: string = '';
     specialization: string = '';
     address: string = '';
     hospitalName: string = '';

@@ -77,3 +77,9 @@
     background-color: #cc3333; /* Darker Red */
   }
   
+
+  .buttons
+  {
+    display: flex;
+    gap: 10px;
+  }
