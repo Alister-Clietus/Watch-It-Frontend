@@ -5,20 +5,35 @@ import Swal from 'sweetalert2';
 import { GuardianModel } from '../../../models/guardian-model';
 import { HttpService } from '../../../service/http.service';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-add-guardian-details',
   standalone: true,
-  imports: [SignupSidebarComponent,FormsModule],
+  imports: [SignupSidebarComponent,FormsModule,CommonModule],
   templateUrl: './add-guardian-details.component.html',
   styleUrl: './add-guardian-details.component.css'
 })
 export class AddGuardianDetailsComponent 
 {
+  bloodGroups: string[] = [
+    "A+",
+    "A-",
+    "B+",
+    "B-",
+    "O+",
+    "O-",
+    "AB+",
+    "AB-"
+];
+
+genderList: string[] = ["Male", "Female", "Other"];
+
+
 verifypassword: any;
   clearForm() 
   {
-  throw new Error('Method not implemented.');
+    this.guardianModel=new GuardianModel()
   }
     guardianModel: GuardianModel=new GuardianModel();
     

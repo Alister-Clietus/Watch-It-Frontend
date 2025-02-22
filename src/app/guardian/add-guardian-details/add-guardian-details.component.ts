@@ -5,21 +5,34 @@ import { GuardianSideBarComponent } from '../guardian-side-bar/guardian-side-bar
 import { HttpService } from '../../service/http.service';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { CommonModule } from '@angular/common';
 
 
 @Component({
   selector: 'app-add-guardian-details',
   standalone: true,
-  imports: [FormsModule,GuardianSideBarComponent],
+  imports: [FormsModule,GuardianSideBarComponent,CommonModule],
   templateUrl: './add-guardian-details.component.html',
   styleUrl: './add-guardian-details.component.css'
 })
 export class AddGuardianDetailsComponent 
 {
+verifypassword: any;
+bloodGroups: string[] = [
+  "A+",
+  "A-",
+  "B+",
+  "B-",
+  "O+",
+  "O-",
+  "AB+",
+  "AB-"
+];
 
+genderList: string[] = ["Male", "Female", "Other"];
 clearForm() 
 {
-throw new Error('Method not implemented.');
+  this.guardianModel=new GuardianModel();
 }
   guardianModel: GuardianModel=new GuardianModel();
   validationMessage: any;
@@ -36,6 +49,7 @@ throw new Error('Method not implemented.');
      registerGuardian(){
       this.validationMessage={};
       console.log(this.guardianModel)
+      this.guardianModel.role="GUARDIAN"
       this.httpservice.postdata("http://localhost:8099/api/guardian/create-guardian",this.guardianModel).subscribe((item:any)=>{
         if(item.code.toLowerCase()=="success"){
           //Toaster for Data Send Successfully

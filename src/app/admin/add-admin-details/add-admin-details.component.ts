@@ -1,17 +1,16 @@
 import { Component } from '@angular/core';
-import { SignupSidebarComponent } from '../signup-sidebar/signup-sidebar.component';
-import { InmateModel } from '../../../models/inmate-model';
-import { HttpService } from '../../../service/http.service';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { GuardianModel } from '../../../models/guardian-model';
+import { AdminSidebarComponent } from '../admin-sidebar/admin-sidebar.component';
+import { HttpService } from '../../service/http.service';
+import { GuardianModel } from '../../models/guardian-model';
 
 @Component({
   selector: 'app-add-admin-details',
   standalone: true,
-  imports: [SignupSidebarComponent,FormsModule,CommonModule],
+  imports: [AdminSidebarComponent,FormsModule,CommonModule],
   templateUrl: './add-admin-details.component.html',
   styleUrl: './add-admin-details.component.css'
 })

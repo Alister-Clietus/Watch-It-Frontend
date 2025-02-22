@@ -5,24 +5,60 @@ import { FormsModule } from '@angular/forms';
 import { Doctor } from '../../../models/doctor';
 import { HttpService } from '../../../service/http.service';
 import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-add-doctor-details',
   standalone: true,
-  imports: [SignupSidebarComponent,FormsModule],
+  imports: [SignupSidebarComponent,FormsModule,CommonModule],
   templateUrl: './add-doctor-details.component.html',
   styleUrl: './add-doctor-details.component.css'
 })
 export class AddDoctorDetailsComponent 
 {
-clear() {
-throw new Error('Method not implemented.');
+clear() 
+{
+this.doctorDto =new Doctor();
 }
+specializations: string[] = [
+  'Cardiologist', 'Dermatologist', 'Neurologist', 'Oncologist', 
+  'Pediatrician', 'Psychiatrist', 'Orthopedic Surgeon', 'ENT Specialist',
+  'Gynecologist', 'Urologist', 'Endocrinologist', 'Gastroenterologist'
+];
+hospitalList: string[] = [
+  "AIIMS, New Delhi",
+  "Fortis Memorial Research Institute, Gurugram",
+  "Apollo Hospitals, Chennai",
+  "Narayana Health, Bengaluru",
+  "Tata Memorial Hospital, Mumbai",
+  "Christian Medical College (CMC), Vellore",
+  "Medanta - The Medicity, Gurugram",
+  "Max Super Speciality Hospital, New Delhi",
+  "Kokilaben Dhirubhai Ambani Hospital, Mumbai",
+  "Lilavati Hospital and Research Centre, Mumbai",
+  "Manipal Hospital, Bengaluru",
+  "Sri Ramachandra Medical Centre, Chennai",
+  "Jaslok Hospital, Mumbai",
+  "Care Hospitals, Hyderabad",
+  "Artemis Hospital, Gurugram",
+  "Hinduja Hospital, Mumbai",
+  "Ruby Hall Clinic, Pune",
+  "Sankara Nethralaya, Chennai",
+  "PGIMER, Chandigarh",
+  "NIMS, Hyderabad",
+  "KIMS Hospitals, Hyderabad",
+  "S.L. Raheja Hospital, Mumbai",
+  "Columbia Asia Referral Hospital, Bengaluru"
+];
+
+
+
+
   doctorDto: Doctor = new Doctor();
+  validationMessage: any;
   
-    validationMessage: any;
-  
-    ngOnInit() {
+    ngOnInit() 
+    {
       console.log("Resident Object Initialized:", this.doctorDto);
       this.validationMessage = {};
     }

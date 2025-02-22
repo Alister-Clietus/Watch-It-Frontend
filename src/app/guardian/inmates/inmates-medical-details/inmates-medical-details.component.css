@@ -60,3 +60,8 @@ th {
   justify-content: left;
 
 }
+
+.upload-btn
+{
+    background-color: green;
+}

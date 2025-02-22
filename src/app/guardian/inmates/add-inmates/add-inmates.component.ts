@@ -5,16 +5,35 @@ import { InmateModel } from '../../../models/inmate-model';
 import { HttpService } from '../../../service/http.service';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-add-inmates',
   standalone: true,
-  imports: [GuardianSideBarComponent,FormsModule],
+  imports: [GuardianSideBarComponent,FormsModule,CommonModule],
   templateUrl: './add-inmates.component.html',
   styleUrl: './add-inmates.component.css'
 })
 export class AddInmatesComponent 
 {
+
+  bloodGroups: string[] = [
+    "A+",
+    "A-",
+    "B+",
+    "B-",
+    "O+",
+    "O-",
+    "AB+",
+    "AB-"
+  ];
+  
+  genderList: string[] = ["Male", "Female", "Other"];
+
+clear() 
+{
+  this.resident=new InmateModel();
+}
   resident: InmateModel = new InmateModel();
   validationMessage: any;
 

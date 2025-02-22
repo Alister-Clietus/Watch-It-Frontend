@@ -76,6 +76,16 @@ constructor(private router: Router,private httpservice: HttpService){
               });
               this.router.navigate(['./doctor/appointments']); // ✅ Redirects to Dashboard
             }
+            else if(item.login=="success" && item.role=="ADMIN")
+            {
+              Swal.fire({
+                title: "Success!",
+                text: "Login Successfully!",
+                icon: "success",
+                confirmButtonColor: "#28a745",
+              });
+              this.router.navigate(['./admin/admin-landing']); // ✅ Redirects to Dashboard
+            }
             if(item.details)
             {
               // validation error toaster

@@ -64,4 +64,44 @@ input, textarea {
     display: flex;
 }
 
-  
+.buttons
+{
+    display: flex;
+    gap: 30px;
+    margin-right: 8%;
+}
+ 
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+select {
+    width: 92%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: all 0.3s ease-in-out;
+}
+
+select:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+    transform: scale(1.03);
+}
+
+.clear
+{
+    background-color: yellow;
+}
+
+.register{
+    background-color: green;
+}
+

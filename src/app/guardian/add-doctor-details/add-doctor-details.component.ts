@@ -5,16 +5,53 @@ import { HttpService } from '../../service/http.service';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 
 @Component({
   selector: 'app-add-doctor-details',
   standalone: true,
-  imports: [GuardianSideBarComponent,FormsModule],
+  imports: [GuardianSideBarComponent,FormsModule,CommonModule],
   templateUrl: './add-doctor-details.component.html',
   styleUrl: './add-doctor-details.component.css'
 })
 export class AddDoctorDetailsComponent {
+
+  specializations: string[] = [
+    'Cardiologist', 'Dermatologist', 'Neurologist', 'Oncologist', 
+    'Pediatrician', 'Psychiatrist', 'Orthopedic Surgeon', 'ENT Specialist',
+    'Gynecologist', 'Urologist', 'Endocrinologist', 'Gastroenterologist'
+  ];
+  hospitalList: string[] = [
+    "AIIMS, New Delhi",
+    "Fortis Memorial Research Institute, Gurugram",
+    "Apollo Hospitals, Chennai",
+    "Narayana Health, Bengaluru",
+    "Tata Memorial Hospital, Mumbai",
+    "Christian Medical College (CMC), Vellore",
+    "Medanta - The Medicity, Gurugram",
+    "Max Super Speciality Hospital, New Delhi",
+    "Kokilaben Dhirubhai Ambani Hospital, Mumbai",
+    "Lilavati Hospital and Research Centre, Mumbai",
+    "Manipal Hospital, Bengaluru",
+    "Sri Ramachandra Medical Centre, Chennai",
+    "Jaslok Hospital, Mumbai",
+    "Care Hospitals, Hyderabad",
+    "Artemis Hospital, Gurugram",
+    "Hinduja Hospital, Mumbai",
+    "Ruby Hall Clinic, Pune",
+    "Sankara Nethralaya, Chennai",
+    "PGIMER, Chandigarh",
+    "NIMS, Hyderabad",
+    "KIMS Hospitals, Hyderabad",
+    "S.L. Raheja Hospital, Mumbai",
+    "Columbia Asia Referral Hospital, Bengaluru"
+  ];
+
+  clearform() 
+  {
+    this.doctorDto=new Doctor()
+  }
 
   doctorDto: Doctor = new Doctor();
 
@@ -33,6 +70,7 @@ export class AddDoctorDetailsComponent {
       
       this.validationMessage={};
       console.log(this.doctorDto)
+      this.doctorDto.role="DOCTOR"
       this.httpservice.postdata("http://localhost:8099/api/guardian/create-doctor",this.doctorDto).subscribe((item:any)=>{
         if(item.code.toLowerCase()=="success"){
           //Toaster for Data Send Successfully

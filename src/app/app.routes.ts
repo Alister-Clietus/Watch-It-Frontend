@@ -4,6 +4,11 @@ export const routes: Routes =
 [
   {
     path: '',
+    redirectTo: 'login',
+    pathMatch: 'full', // Ensures full URL match before redirecting
+  },
+  {
+    path: '',
     loadChildren: () =>
       import('./auth/auth.module').then(
         (m) => m.AuthModule
@@ -29,6 +34,14 @@ export const routes: Routes =
         loadChildren: () =>
           import('./doctor-portal/doctor-portal.module').then(
             (m) => m.DoctorPortalModule
+          ),
+      },
+
+      {
+        path: 'admin',
+        loadChildren: () =>
+          import('./admin/admin-routing.module').then(
+            (m) => m.AdminRoutingModule
           ),
       },
 

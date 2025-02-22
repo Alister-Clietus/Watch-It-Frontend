@@ -4,6 +4,7 @@
     text-align: center;
     margin-top: 50px;
     margin-left: 180px;
+    overflow-x: auto; /* Enable horizontal scrolling for small screens */
 }
 
 .medical-report-table {
@@ -13,6 +14,7 @@
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
     overflow: hidden;
+    background-color: #fff;
 }
 
 th, td {
@@ -25,6 +27,15 @@ th {
     background: #b39e00;
     color: white;
     font-size: 16px;
+    font-weight: bold;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
 }
 
 .btn {
@@ -48,15 +59,49 @@ th {
     gap: 5px;
 }
 
-.table-title
-{
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  background-color: rgb(114, 111, 111);
-  color: white;
-  font-size: 20px;
-  height: 40px;
-  padding-top: 10px;
-  padding-bottom: 5px;
-  justify-content: left;
+.upload-btn {
+    background: #4CAF50;
+}
 
+.upload-btn:hover {
+    background: #45a049;
+}
+
+.table-title {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: rgb(114, 111, 111);
+    color: white;
+    font-size: 20px;
+    height: 40px;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    justify-content: left;
+    border-radius: 10px 10px 0 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .medical-report-container {
+        margin-left: 20px;
+        width: 95%;
+    }
+
+    .medical-report-table {
+        display: block;
+        overflow-x: auto;
+    }
+
+    th, td {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .btn {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+
+    .table-title {
+        font-size: 18px;
+    }
 }

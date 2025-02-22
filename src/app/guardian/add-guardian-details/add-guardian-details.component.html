@@ -40,12 +40,23 @@
   
         <div class="form-group">
           <label for="gender">Gender:</label>
-          <span class="error-msg-span" style="color: red;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size: 10px;font-style: italic;">{{validationMessage.gender}}</span>
-          <input type="text" id="gender" name="gender" [(ngModel)]="guardianModel.gender" required>
+          <span class="error-msg-span" style="color: red; font-family: 'Lucida Sans', Geneva, Verdana, sans-serif; font-size: 10px; font-style: italic;">
+              {{validationMessage.gender}}
+          </span>
+          <select id="gender" name="gender" [(ngModel)]="guardianModel.gender" required>
+              <option value="" disabled selected>Select Gender</option>
+              <option *ngFor="let gender of genderList" [value]="gender">{{ gender }}</option>
+          </select>
+      </div>
+
+        <div class="form-group">
+          <label for="gender">Password:</label>
+          <span class="error-msg-span" style="color: red;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size: 10px;font-style: italic;">{{validationMessage.password}}</span>
+          <input type="password" id="email" name="email" [(ngModel)]="verifypassword" required>
         </div>
   
         <div class="form-group-button">
-          <input type="submit" value="Clear" (click)="clearForm()">
+          <input type="submit" value="Clear" class="clear" (click)="clearForm()">
         </div>
       </div>
   
@@ -59,9 +70,14 @@
   
         <div class="form-group">
           <label for="bloodGroup">Blood Group:</label>
-          <span class="error-msg-span" style="color: red;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size: 10px;font-style: italic;">{{validationMessage.bloodgroup}}</span>
-          <input type="text" id="bloodGroup" name="bloodGroup" [(ngModel)]="guardianModel.bloodgroup" required>
-        </div>
+          <span class="error-msg-span" style="color: red; font-family: 'Lucida Sans', Geneva, Verdana, sans-serif; font-size: 10px; font-style: italic;">
+              {{validationMessage.bloodgroup}}
+          </span>
+          <select id="bloodGroup" name="bloodGroup" [(ngModel)]="guardianModel.bloodgroup" required>
+              <option value="" disabled selected>Select Blood Group</option>
+              <option *ngFor="let blood of bloodGroups" [value]="blood">{{ blood }}</option>
+          </select>
+      </div>
   
         <div class="form-group">
           <label for="panId">PAN Card ID:</label>
@@ -86,9 +102,15 @@
           <span class="error-msg-span" style="color: red;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size: 10px;font-style: italic;">{{validationMessage.email}}</span>
           <input type="text" id="email" name="email" [(ngModel)]="guardianModel.email" required>
         </div>
+
+        <div class="form-group">
+          <label for="gender">Verify Password:</label>
+          <span class="error-msg-span" style="color: red;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size: 10px;font-style: italic;">{{validationMessage.password}}</span>
+          <input type="password" id="email" name="email" [(ngModel)]="guardianModel.password" required>
+        </div>
   
         <div class="form-group-button">
-          <input type="submit" value="Submit" (click)="registerGuardian()">
+          <input type="submit" value="Submit" class="register" (click)="registerGuardian()">
         </div>
       </div>
     </div>

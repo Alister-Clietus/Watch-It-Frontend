@@ -1,1 +1,42 @@
 <app-doctor-sidebar></app-doctor-sidebar>
+<div class="container">
+    <div class="table-responsive">
+        <table>
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Blood Pressure</th>
+                    <th>Sugar Level</th>
+                    <th>Cholesterol</th>
+                    <th>Is Able To Walk</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let resident of residents">
+                    <td>{{ resident.firstName }}</td>
+                    <td>{{ resident.lastName }}</td>
+                    <td>
+                        <input [(ngModel)]="resident.bloodPressure" placeholder="120/80 mmHg" />
+                    </td>
+                    <td>
+                        <input [(ngModel)]="resident.sugarLevel" placeholder="110 mg/dL" />
+                    </td>
+                    <td>
+                        <input [(ngModel)]="resident.cholesterol" placeholder="180 mg/dL" />
+                    </td>
+                    <td>
+                        <select [(ngModel)]="resident.isAbleToWalk">
+                            <option [value]="true">Yes</option>
+                            <option [value]="false">No</option>
+                        </select>
+                    </td>
+                    <td>
+                        <button class="send-btn" (click)="sendData(resident)">Send</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,63 @@
+<app-admin-sidebar></app-admin-sidebar>
+
+<div class="resident-container">
+    <h2 class="table-title">Admin List</h2>  <!-- Table Title -->
+  </div>
+  
+  <div class="custom-search-container">
+  
+    <!-- Search Input -->
+    <div class="search-box">
+      <i class="fas fa-search"></i>
+      <input type="text" id="customSearch" [(ngModel)]="searchQueryGuardian" placeholder="Search..." />
+    </div>
+  
+  
+    <!-- Dropdown Filter -->
+    <select id="customFilter" [(ngModel)]="selectedFilterGuardian">
+      <option value="">All</option>
+      <option value="firstName">First Name</option>
+      <option value="lastName">Last Name</option>
+      <option value="age">Age</option>
+      <option value="adhaarNumber">Aadhaar Number</option>
+      <option value="panId">PAN ID</option>
+      <option value="gender">Gender</option>
+      <option value="address">Address</option>
+      <option value="phone">Phone Number</option>
+      <option value="joineddate">Joined Date</option>
+      <option value="bloodgroup">Blood Group</option>
+      <option value="nativeplace">Native Place</option>
+    </select>
+  
+  
+    <button id="customFilter" (click)="getresult()">
+      Search
+    </button>
+  
+    <button id="customFilter" (click)="clearGuardian()">
+      Clear
+    </button>
+  
+  </div>
+  
+  <div class="resident-container">
+    <table id="guardianlist">
+      <thead>
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Address</th>
+          <th>Gender</th>
+          <th>Phone</th>
+          <th>Email</th>
+          <th>Aadhaar Number</th>
+          <th>Birth Place</th>
+          <th>Date of Birth</th>
+          <th>Blood Group</th>
+          <th>Joined Date</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+  </div>

@@ -1,10 +1,9 @@
 <app-doctor-sidebar></app-doctor-sidebar>
 
-
 <div class="medical-report-container">
     <div class="resident-container">
         <h2 class="table-title">Inmates Medical Soft Copies</h2>  <!-- Table Title -->
-      </div>
+    </div>
     <table class="medical-report-table">
         <thead>
             <tr>
@@ -16,35 +15,35 @@
         </thead>
         <tbody>
             <tr *ngFor="let report of anyArray">
-              <td>{{ report.name }}</td>
-              <td>
-                <ng-container *ngIf="report.bloodresult === null; else downloadBloodResult">
-                  <input type="file" #bloodResultInput accept="application/pdf" (change)="onFileSelected($event, report, 'bloodResult')" hidden>
-                  <button class="btn upload-btn" (click)="bloodResultInput.click()">Upload</button>
-                </ng-container>
-                <ng-template #downloadBloodResult>
-                  <button class="btn download-btn" (click)="downloadReport(report.bloodResult)">Download</button>
-                </ng-template>
-              </td>
-              <td>
-                <ng-container *ngIf="report.fullbodyresult === null; else downloadFullBodyResult">
-                  <input type="file" #fullBodyResultInput accept="application/pdf" (change)="onFileSelected($event, report, 'latestDoctorResult')" hidden>
-                  <button class="btn upload-btn" (click)="fullBodyResultInput.click()">Upload</button>
-                </ng-container>
-                <ng-template #downloadFullBodyResult>
-                  <button class="btn download-btn" (click)="downloadReport(report.latestDoctorResult!)">Download</button>
-                </ng-template>
-              </td>
-              <td>
-                <ng-container *ngIf="report.dietplan === null; else downloadDietPlan">
-                  <input type="file" #dietPlanInput accept="application/pdf" (change)="onFileSelected($event, report, 'dietPlan')" hidden>
-                  <button class="btn upload-btn" (click)="dietPlanInput.click()">Upload</button>
-                </ng-container>
-                <ng-template #downloadDietPlan>
-                  <button class="btn download-btn" (click)="downloadReport(report.dietPlan!)">Download</button>
-                </ng-template>
-              </td>
+                <td>{{ report.name }}</td>
+                <td>
+                    <ng-container *ngIf="report.bloodresult === null; else downloadBloodResult">
+                        <input type="file" #bloodResultInput accept="application/pdf" (change)="onFileSelected($event, report, 'bloodResult')" hidden>
+                        <button class="btn upload-btn" (click)="bloodResultInput.click()">Upload</button>
+                    </ng-container>
+                    <ng-template #downloadBloodResult>
+                        <button class="btn download-btn" (click)="downloadReport(report.bloodResult)">Download</button>
+                    </ng-template>
+                </td>
+                <td>
+                    <ng-container *ngIf="report.fullbodyresult === null; else downloadFullBodyResult">
+                        <input type="file" #fullBodyResultInput accept="application/pdf" (change)="onFileSelected($event, report, 'latestDoctorResult')" hidden>
+                        <button class="btn upload-btn" (click)="fullBodyResultInput.click()">Upload</button>
+                    </ng-container>
+                    <ng-template #downloadFullBodyResult>
+                        <button class="btn download-btn" (click)="downloadReport(report.latestDoctorResult!)">Download</button>
+                    </ng-template>
+                </td>
+                <td>
+                    <ng-container *ngIf="report.dietplan === null; else downloadDietPlan">
+                        <input type="file" #dietPlanInput accept="application/pdf" (change)="onFileSelected($event, report, 'dietPlan')" hidden>
+                        <button class="btn upload-btn" (click)="dietPlanInput.click()">Upload</button>
+                    </ng-container>
+                    <ng-template #downloadDietPlan>
+                        <button class="btn download-btn" (click)="downloadReport(report.dietPlan!)">Download</button>
+                    </ng-template>
+                </td>
             </tr>
-          </tbody>
+        </tbody>
     </table>
 </div>
