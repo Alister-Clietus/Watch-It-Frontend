@@ -17,6 +17,7 @@ export class CameraCaptureComponent implements OnInit
 {
   videoUrll: string | ArrayBuffer | null = null;
   selectedFile: File | null = null;
+  loading: boolean = false;
 
   ngOnInit(): void 
   {
@@ -123,18 +124,21 @@ export class CameraCaptureComponent implements OnInit
       alert('Please select a video first.');
       return;
     }
+    this.loading = true; // Show loading screen
+
     const formData = new FormData();
     formData.append('video', this.selectedFile,'recorded-video.mp4');
-    this.http.post('http://127.0.0.1:5000/upload', formData).subscribe(
+    this.http.post('http://127.0.0.1:5001/upload', formData).subscribe(
       (response:any) =>
          {
+          this.loading = false; // Hide loading screen
           Swal.fire({
             title: "Success!",
             text: "Video uploaded successfully!",
             icon: "success",
             confirmButtonColor: "#28a745",
           });  
-          if (response.fall_detected) 
+          if (response.fall_detected===true) 
           {
           // Trigger the alert if fall is detected
           this.triggerAlert();
@@ -151,7 +155,7 @@ export class CameraCaptureComponent implements OnInit
         },
       (error) => {
         console.error('Upload failed:', error);
-
+        this.loading = false; // Hide loading screen
           Swal.fire({
             title: "fail!",
             text: "API Error Detected Check the System!",
@@ -168,7 +172,7 @@ export class CameraCaptureComponent implements OnInit
     const formData = new FormData();
     formData.append('video', this.recordedBlob, 'recorded-video.mp4');
 
-    this.http.post('http://127.0.0.1:5000/upload', formData).subscribe(
+    this.http.post('http://127.0.0.1:5001/upload', formData).subscribe(
       (response: any) => {
         console.log('Upload successful', response);
 
@@ -222,4 +226,5 @@ export class CameraCaptureComponent implements OnInit
     this.videoUrl = null
 
   }
+
 }

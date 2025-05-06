@@ -1,0 +1,192 @@
+/* Import Boxicons */
+@import url('https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css');
+
+/* Base Styles */
+.settings-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+  font-family: 'Segoe UI', Roboto, sans-serif;
+}
+
+.settings-header {
+  margin-bottom: 32px;
+}
+
+.settings-header h1 {
+  margin: 0;
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.settings-header .subtitle {
+  margin: 8px 0 0;
+  color: #7f8c8d;
+  font-size: 1rem;
+}
+
+.settings-content {
+  display: flex;
+  gap: 32px;
+}
+
+/* Navigation Sidebar */
+.settings-nav {
+  width: 240px;
+  flex-shrink: 0;
+}
+
+.settings-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.settings-nav li {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-bottom: 4px;
+  color: #34495e;
+}
+
+.settings-nav li i {
+  font-size: 1.2rem;
+  margin-right: 12px;
+  color: #7f8c8d;
+}
+
+.settings-nav li:hover {
+  background: #f5f7fa;
+}
+
+.settings-nav li.active {
+  background: #e3f2fd;
+  color: #1976d2;
+  font-weight: 500;
+}
+
+.settings-nav li.active i {
+  color: #1976d2;
+}
+
+/* Settings Panel */
+.settings-panel {
+  flex-grow: 1;
+  background: white;
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.settings-section h2 {
+  margin-top: 0;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #2c3e50;
+}
+
+.form-group {
+  margin-bottom: 24px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 12px;
+  font-weight: 500;
+  color: #34495e;
+}
+
+.input-field {
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.input-field i {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #95a5a6;
+  font-size: 1.1rem;
+}
+
+.input-field input {
+  width: 100%;
+  padding: 12px 16px 12px 40px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border 0.3s ease;
+}
+
+.input-field input:focus {
+  outline: none;
+  border-color: #1976d2;
+  box-shadow: 0 0 0 2px rgba(25, 118, 210, 0.2);
+}
+
+/* Action Buttons */
+.settings-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid #eee;
+}
+
+.btn-cancel, .btn-save {
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-cancel {
+  background: white;
+  border: 1px solid #ddd;
+  color: #34495e;
+}
+
+.btn-cancel:hover {
+  background: #f5f7fa;
+}
+
+.btn-save {
+  background: #1976d2;
+  border: 1px solid #1976d2;
+  color: white;
+}
+
+.btn-save:hover {
+  background: #1565c0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .settings-content {
+    flex-direction: column;
+  }
+  
+  .settings-nav {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .settings-nav ul {
+    display: flex;
+    overflow-x: auto;
+    padding-bottom: 8px;
+  }
+  
+  .settings-nav li {
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+}

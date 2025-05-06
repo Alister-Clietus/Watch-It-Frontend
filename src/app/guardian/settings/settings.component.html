@@ -1,2 +1,140 @@
 <app-guardian-side-bar></app-guardian-side-bar>
-<p>settings works!</p>
+<div class="settings-container">
+    <!-- Header -->
+    <div class="settings-header">
+      <h1>Settings</h1>
+      <p class="subtitle">Manage your application preferences</p>
+    </div>
+  
+    <!-- Main Content -->
+    <div class="settings-content">
+      <!-- Navigation Sidebar -->
+      <nav class="settings-nav">
+        <ul>
+          <li [class.active]="activeTab === 'account'" (click)="setActiveTab('account')">
+            <i class='bx bx-user'></i>
+            <span>Account</span>
+          </li>
+          <li [class.active]="activeTab === 'notifications'" (click)="setActiveTab('notifications')">
+            <i class='bx bx-bell'></i>
+            <span>Notifications</span>
+          </li>
+          <li [class.active]="activeTab === 'privacy'" (click)="setActiveTab('privacy')">
+            <i class='bx bx-lock-alt'></i>
+            <span>Privacy</span>
+          </li>
+          <li [class.active]="activeTab === 'appearance'" (click)="setActiveTab('appearance')">
+            <i class='bx bx-palette'></i>
+            <span>Appearance</span>
+          </li>
+          <li [class.active]="activeTab === 'billing'" (click)="setActiveTab('billing')">
+            <i class='bx bx-credit-card'></i>
+            <span>Billing</span>
+          </li>
+          <li [class.active]="activeTab === 'advanced'" (click)="setActiveTab('advanced')">
+            <i class='bx bx-cog'></i>
+            <span>Advanced</span>
+          </li>
+        </ul>
+      </nav>
+  
+      <!-- Settings Panel -->
+      <div class="settings-panel">
+        <form [formGroup]="settingsForm" (ngSubmit)="onSubmit()">
+          <!-- Account Settings Section -->
+          <div class="settings-section" *ngIf="activeTab === 'account'">
+            <h2>Account Settings</h2>
+            
+            <div class="form-group">
+              <label>Profile Information</label>
+              <div class="input-field" [class.error]="settingsForm.get('fullName')?.invalid && settingsForm.get('fullName')?.touched">
+                <i class='bx bx-user'></i>
+                <input type="text" placeholder="Full Name" formControlName="fullName">
+              </div>
+              <div class="error-message" *ngIf="settingsForm.get('fullName')?.invalid && settingsForm.get('fullName')?.touched">
+                Full name is required
+              </div>
+              
+              <div class="input-field" [class.error]="settingsForm.get('email')?.invalid && settingsForm.get('email')?.touched">
+                <i class='bx bx-envelope'></i>
+                <input type="email" placeholder="Email" formControlName="email">
+              </div>
+              <div class="error-message" *ngIf="settingsForm.get('email')?.invalid && settingsForm.get('email')?.touched">
+                Please enter a valid email
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label>Change Password</label>
+              <div class="input-field" [class.error]="settingsForm.get('currentPassword')?.invalid && settingsForm.get('currentPassword')?.touched">
+                <i class='bx bx-key'></i>
+                <input type="password" placeholder="Current Password" formControlName="currentPassword">
+              </div>
+              
+              <div class="input-field" [class.error]="settingsForm.get('newPassword')?.invalid && settingsForm.get('newPassword')?.touched">
+                <i class='bx bx-lock'></i>
+                <input type="password" placeholder="New Password" formControlName="newPassword">
+              </div>
+              <div class="error-message" *ngIf="settingsForm.get('newPassword')?.invalid && settingsForm.get('newPassword')?.touched">
+                Password must be at least 6 characters
+              </div>
+            </div>
+          </div>
+
+          <!-- Notifications Section -->
+          <div class="settings-section" *ngIf="activeTab === 'notifications'">
+            <h2>Notification Settings</h2>
+            
+            <div class="form-group">
+              <label>Notification Preferences</label>
+              <div class="toggle-field">
+                <label>
+                  <input type="checkbox" formControlName="emailNotifications">
+                  <span class="toggle-slider"></span>
+                  Email Notifications
+                </label>
+              </div>
+              
+              <div class="toggle-field">
+                <label>
+                  <input type="checkbox" formControlName="pushNotifications">
+                  <span class="toggle-slider"></span>
+                  Push Notifications
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Privacy Section -->
+          <div class="settings-section" *ngIf="activeTab === 'privacy'">
+            <h2>Privacy Settings</h2>
+            <!-- Add privacy settings content here -->
+          </div>
+
+          <!-- Appearance Section -->
+          <div class="settings-section" *ngIf="activeTab === 'appearance'">
+            <h2>Appearance Settings</h2>
+            <!-- Add appearance settings content here -->
+          </div>
+
+          <!-- Billing Section -->
+          <div class="settings-section" *ngIf="activeTab === 'billing'">
+            <h2>Billing Settings</h2>
+            <!-- Add billing settings content here -->
+          </div>
+
+          <!-- Advanced Section -->
+          <div class="settings-section" *ngIf="activeTab === 'advanced'">
+            <h2>Advanced Settings</h2>
+            <!-- Add advanced settings content here -->
+          </div>
+  
+          <!-- Action Buttons -->
+          <div class="settings-actions">
+            <button type="button" class="btn-cancel" (click)="resetForm()">Cancel</button>
+            <button type="submit" class="btn-save" [disabled]="settingsForm.invalid">Save Changes</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
